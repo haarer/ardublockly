@@ -291,6 +291,38 @@ Blockly.Arduino.Boards.profiles.esp8266_huzzah = {
   interrupt: [['interrupt0', '2'], ['interrupt1', '3']]
 };
 
+/** ESP32 for the Sparkfun ESP32 Thing. */
+Blockly.Arduino.Boards.profiles.sparkfun_esp32_thing = {
+  name: 'SparkFun ESP32 Thing',
+  description: 'SparkFun ESP32 Thing',
+  compilerFlag: 'espressif:esp32:esp32thing:FlashFreq=80,UploadSpeed=921600',
+  analogPins: [['0', '0'], ['2', '2'], ['4', '4'], ['12', '12'], ['13', '13'],
+               ['14', '14'], ['15', '15'], ['25', '25'], ['26', '26'], ['27', '27'],
+               ['32', '32'], ['33', '33'], ['34', '34'], ['35', '35'], ['38', '38'],
+               ['39', '39']],
+  digitalPins: [['0', '0'], ['2', '2'], ['4', '4'], ['5', '5'], ['12', '12'],
+                ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'],
+                ['18', '18'], ['19', '19'], ['21', '21'], ['22', '22'], ['23', '23'],
+                ['25', '25'], ['26', '26'], ['27', '27'], ['32', '32'], ['33', '33'],
+                ['34', '34'], ['35', '35'], ['36', '36'], ['37', '37'], ['38', '38'],
+                ['39', '39']],
+  pwmPins: [['0', '0'], ['2', '2'], ['4', '4'], ['5', '5'], ['12', '12'],
+            ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'],
+            ['18', '18'], ['19', '19'], ['21', '21'], ['22', '22'], ['23', '23'],
+            ['25', '25'], ['26', '26'], ['27', '27'], ['32', '32'], ['33', '33']],
+  serial: [['serial', 'Serial']],
+  serialPins: { Serial: [['RX', 'RX'], ['TX', 'TX']] },
+  serialSpeed: Blockly.Arduino.Boards.profiles.uno.serial,
+  spi: [['SPI', 'SPI']],
+  spiPins: { SPI: [['MOSI', '23'], ['MISO', '19'], ['SCK', '18']] },
+  spiClockDivide: Blockly.Arduino.Boards.profiles.uno.spiClockDivide,
+  i2c: [['I2C', 'Wire']],
+  i2cPins: { Wire: [['SDA', '21'], ['SCL', '22']] },
+  i2cSpeed: Blockly.Arduino.Boards.profiles.uno.i2cSpeed,
+  builtinLed: [['BUILTIN_1', '5']],
+  interrupt: [['interrupt0', '2'], ['interrupt1', '4']]
+};
+
 /** ESP8266 for the Wemos D1 R2. */
 Blockly.Arduino.Boards.profiles.esp8266_wemos_d1 = {
   name: 'Wemos D1',
