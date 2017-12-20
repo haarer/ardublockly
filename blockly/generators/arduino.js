@@ -74,7 +74,8 @@ Blockly.Arduino.PinTypes = {
   SERIAL: 'SERIAL',
   I2C: 'I2C/TWI',
   SPI: 'SPI',
-  LCD: 'LCD'
+  LCD: 'LCD',
+  WS2812: 'WS2812'
 };
 
 /**
