@@ -34,10 +34,10 @@ Blockly.Arduino['servo_write'] = function(block) {
   Blockly.Arduino.reservePin(
       block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Write');
 
-  Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
+  Blockly.Arduino.addInclude('servo', '#if defined(ESP32)\n#include <ESP32_Servo.h>\n#else if defined(__AVR__)\n#include <Servo.h>\n#endif\n');
   Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
 
-  var setupCode = servoName + '.attach(' + pinKey + ');';
+  var setupCode = servoName + '.attach(' + pinKey + ', 700, 2100);';
   Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);
 
   var code = servoName + '.write(' + servoAngle + ');\n';
@@ -60,10 +60,10 @@ Blockly.Arduino['servo_read'] = function(block) {
   Blockly.Arduino.reservePin(
       block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Read');
 
-  Blockly.Arduino.addInclude('servo', '#include <Servo.h>');
+  Blockly.Arduino.addInclude('servo', '#if defined(ESP32)\n#include <ESP32_Servo.h>\n#else if defined(__AVR__)\n#include <Servo.h>\n#endif\n');
   Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
 
-  var setupCode = servoName + '.attach(' + pinKey + ');';
+  var setupCode = servoName + '.attach(' + pinKey + ', 700, 2100);';
   Blockly.Arduino.addSetup('servo_' + pinKey, setupCode, true);
 
   var code = servoName + '.read()';
