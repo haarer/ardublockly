@@ -33,8 +33,16 @@ Blockly.Arduino['servo_write'] = function(block) {
 
   Blockly.Arduino.reservePin(
       block, pinKey, Blockly.Arduino.PinTypes.SERVO, 'Servo Write');
+  var el = document.getElementById('board');
+  if(el.options[el.selectedIndex].value =='SparkFun\ ESP32\ Thing')
+  {
+    Blockly.Arduino.addInclude('servo', '#include <ESP32_Servo.h>');
+  }
+  else
+  {
+    Blockly.Arduino.addInclude('servo', '#include <Servo.h> ');
+  }
 
-  Blockly.Arduino.addInclude('servo', '#if defined(ESP32)\n#include <ESP32_Servo.h>\n#else if defined(__AVR__)\n#include <Servo.h>\n#endif\n');
   Blockly.Arduino.addDeclaration('servo_' + pinKey, 'Servo ' + servoName + ';');
 
   var setupCode = servoName + '.attach(' + pinKey + ', 700, 2100);';

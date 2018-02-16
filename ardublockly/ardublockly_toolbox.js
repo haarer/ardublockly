@@ -313,5 +313,19 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="blynk_setup"></block>' +
+'    <block type="blynk_ledwidget">' + 
+'      <value name="BLYNK_VPIN">' +
+'       <block type="blynk_vpin"></block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="blynk_vpin"></block>' +
+'    <block type="blynk_set_led">' +
+'      <value name="state">' +
+'       <block type="io_highlow"></block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="blynk_write"></block>' +
+'    <block type="blynk_readparam"></block>' +
 '  </category>' +
 '</xml>';

@@ -111,7 +111,7 @@ Blockly.Blocks['liquidcrystal_print'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_SERIAL_PRINT);
     this.appendValueInput('CONTENT')
-        .setCheck(Blockly.Types.TEXT.checkList);
+        .setCheck(null);
     this.appendValueInput('LCD_NAME')
         .appendField(Blockly.Msg.ARD_LIQUIDCRYSTAL_PRINT_ON_DISPLAY);
     this.appendDummyInput()
