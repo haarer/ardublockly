@@ -13,6 +13,7 @@ var Ardublockly = Ardublockly || {};
 Ardublockly.LANGUAGE_NAME = {
   'fr': 'Français',
   'en': 'English',
+  'de': 'Deutsch',  
   'es': 'Español',
   'nl': 'Nederlands',
   'pt': 'Português',
