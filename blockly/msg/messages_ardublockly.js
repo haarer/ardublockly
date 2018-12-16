@@ -165,6 +165,16 @@ Blockly.Msg.ARD_TONE_WARNING = 'Frequency must be in range 31 - 65535';
 Blockly.Msg.ARD_NOTONE = 'Turn off tone on pin #';
 Blockly.Msg.ARD_NOTONE_TIP = 'Turns the tone off on the selected pin';
 
+Blockly.Msg.ARD_WS2812_CONFIG = 'Setup WS2812 RGB LED';
+Blockly.Msg.ARD_WS2812_DEFAULT_NAME = 'WS2812';
+Blockly.Msg.ARD_WS2812_PIN = 'Pin';
+Blockly.Msg.ARD_WS2812_LEDs = 'No. of LEDs';
+Blockly.Msg.ARD_WS2812_CONFIG_TIP = 'Test';
+Blockly.Msg.ARD_WS2812_SET_RGB_LED =  'Set RGB LED';
+Blockly.Msg.ARD_WS2812_LED_NO = 'LED No:';
+Blockly.Msg.ARD_WS2812_TO_COLOR = 'to Color:';
+Blockly.Msg.ARD_WS2812_COLOR_TIP = 'Test';
+Blockly.Msg.ARD_WS2812_SHOW = 'Show LED output';
 /**
  * Ardublockly instances
  */

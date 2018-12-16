@@ -230,5 +230,28 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="spi_setup"></block>' +
 '    <block type="spi_transfer"></block>' +
 '    <block type="spi_transfer_return"></block>' +
+'    <block type="WS2812_config">' +
+'      <value name="WS2812_PIN">' +
+'        <block type="math_number">' +
+'          <field name="NUM">25</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="WS2812_NO_OF_LEDS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">10</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="WS2812_variable"></block>' +
+'    <block type="WS2812_Color">' +
+'      <value name="ws2812_name">' +
+'        <block type="WS2812_variable"></block>' +
+'      </value>' +
+'      <value name="WS2812_LED_NO">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
 '  </category>' +
 '</xml>';
