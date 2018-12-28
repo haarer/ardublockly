@@ -47,7 +47,7 @@ Blockly.Blocks['WS2812_variable'] = {
             Blockly.Msg.ARD_WS2812_DEFAULT_NAME,false,true,false), "ws2812_name");
     this.setOutput(true, null);
     this.setColour(Blockly.Blocks.WS2812.HUE);
-    this.setTooltip('');
+    this.setTooltip(Blockly.Msg.ARD_WS2812_TIP);
     this.setHelpUrl('https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use');
   }
 };

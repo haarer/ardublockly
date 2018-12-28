@@ -1,4 +1,4 @@
-var Ardublockly = Ardublockly || {};
+﻿var Ardublockly = Ardublockly || {};
 Ardublockly.LOCALISED_TEXT = {
   translationLanguage: "Deutsch",
   title: "Ardublockly",
@@ -17,16 +17,16 @@ Ardublockly.LOCALISED_TEXT = {
   sketchFolder: "Sketch Ordner",
   sketchFolderDefault: "Sketch Ordner unbekannt",
   arduinoBoard: "Arduino Board",
-  arduinoBoardDefault: "Arduino Board unknown",
+  arduinoBoardDefault: "Arduino Board unbekannt",
   comPort: "COM Port",
   comPortDefault: "COM Port unknown",
   defaultIdeButton: "Default IDE Button",
-  defaultIdeButtonDefault: "IDE options unbekannt",
+  defaultIdeButtonDefault: "IDE Optionen unbekannt",
   language: "Sprache",
   languageDefault: "Sprache unbekannt",
   sketchName: "Sketch Name",
   /* Arduino console output */
-  arduinoOpMainTitle: "Arduino IDE Ausgabeoutput",
+  arduinoOpMainTitle: "Arduino IDE Ausgabe",
   arduinoOpWaiting: "Warte auf IDE Ausgabe...",
   arduinoOpUploadedTitle: "Sketch hochgeladen",
   arduinoOpVerifiedTitle: "Sketch überprüft",
@@ -36,29 +36,28 @@ Ardublockly.LOCALISED_TEXT = {
   arduinoOpErrorIdContext_0: "Kein Fehler.",
   arduinoOpErrorIdContext_1: "Build oder Upload Fehlgeschlagen.",
   arduinoOpErrorIdContext_2: "Sketch nicht gefunden.",
-  arduinoOpErrorIdContext_3: "Invalid command line argument.",
-  arduinoOpErrorIdContext_4: "Preference passed to 'get-pref' flag does not exist.",
-  arduinoOpErrorIdContext_5: "Not Clear, but Arduino IDE sometimes errors with this.",
-  arduinoOpErrorIdContext_50: "Unexpected error code from Arduino IDE",
-  arduinoOpErrorIdContext_51: "Could not create sketch file",
-  arduinoOpErrorIdContext_52: "Invalid path to internally created sketch file",
+  arduinoOpErrorIdContext_3: "Ungültiger Kommandozeilenparameter.",
+  arduinoOpErrorIdContext_4: "Einstellung die an 'get-pref' Flag übergeben werden soll exitiert nicht.",
+  arduinoOpErrorIdContext_5: "Arduino IDE gibt manchmal diesen Fehler aus - warum ist nicht bekannt.",
+  arduinoOpErrorIdContext_50: "Unerwarteter Fehlercode von der Arduino IDE",
+  arduinoOpErrorIdContext_51: "Kann Sketchdatei nicht erzeugen",
+  arduinoOpErrorIdContext_52: "Ungültiger Pfad zu intern erzeugter Sketchdatei",
   arduinoOpErrorIdContext_53: "Arduino IDE nicht gefunden<br>" +
-                              "The compiler directory has not been set correctly.<br>" +
-                              "Please ensure the path is correct in the Settings.",
+                              "Der Pfad zur IDE wurde falsch gesetzt.<br>" +
+                              "Bitte korrigieren Sie den Pfad in den Einstellungen.",
   arduinoOpErrorIdContext_54: "What should we do with the Sketch?<br>" +
                               "The launch IDE option has not been set.<br>" +
                               "Please select an IDE option in the Settings.",
-  arduinoOpErrorIdContext_55: "Serial Port unavailable<br>" +
-                              "The Serial Port is not accessible.<br>" +
-                              "Please check if the Arduino is correctly connected to the PC and select the Serial Port in the Settings.",
-  arduinoOpErrorIdContext_56: "Unknown Arduino Board<br>" +
-                              "Es wurde kein Arduino Board ausgewählthas not been set.<br>" +
-                              "Please select the appropriate Arduino Board from the settings.",
+  arduinoOpErrorIdContext_55: "Serieller Port nicht verfügbar<br>" +
+                              "Bitte überprüfen Sie die Verbindung des Arduinos zum PC bzw. wählen den korrekten Port in den Einstellungen.",
+  arduinoOpErrorIdContext_56: "Unbekanntes Arduino Board<br>" +
+                              "Es wurde kein Arduino Board ausgewählt.<br>" +
+                              "Bitte wählen Sie das passende Arduino Board aus.",
   arduinoOpErrorIdContext_52: "Unerwarteter Server Fehler.",
   arduinoOpErrorIdContext_64: "JSON kann nicht geparsed werden",
   arduinoOpErrorUnknown: "Unerwarteter Fehler",
   /* Modals */
-  noServerTitle: "Ardublockly app not running",
+  noServerTitle: "Ardublockly app läuft nicht",
   noServerTitleBody: "<p>Um alle Ardublockly Features verwenden zu können muß die Ardublockly Desktopanwendung auf Ihrem dem Computer laufen.</p>" +
                      "<p>Wenn Sie die Online-Version nutzen, können sie weder Einstellungen ändern, noch Code in einen Arduino laden.</p>" +
                      "<p>Installationsanweisungen finden Sie im <a href=\"https://github.com/carlosperate/ardublockly\">Ardublockly Repository</a>.</p>" +
