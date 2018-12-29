@@ -57,3 +57,43 @@ Blockly.Arduino['WS2812_Color'] = function(block) {
   }
   return code;
 };
+
+Blockly.Arduino['WS2812_FlexColor'] = function(block) {
+
+  var pinType = Blockly.Arduino.PinTypes.WS2812;
+  var WS2812Name = Blockly.Arduino.valueToCode(
+      block, 'ws2812_name', Blockly.Arduino.ORDER_ATOMIC) || Blockly.Msg.ARD_WS2812_DEFAULT_NAME;
+
+  var WS2812LEDNo = Blockly.Arduino.valueToCode(block, 'WS2812_LED_NO',
+      Blockly.Arduino.ORDER_ATOMIC) || '0';
+
+  var WS2812red_value = Blockly.Arduino.valueToCode(block, 'WS2812_red_value',
+      Blockly.Arduino.ORDER_ATOMIC) || '0';
+
+  var WS2812green_value = Blockly.Arduino.valueToCode(block, 'WS2812_green_value',
+      Blockly.Arduino.ORDER_ATOMIC) || '0';
+
+  var WS2812blue_value = Blockly.Arduino.valueToCode(block, 'WS2812_blue_value',
+      Blockly.Arduino.ORDER_ATOMIC) || '0';
+      
+  var checkbox_name = (block.getFieldValue('SHOW') == 'TRUE');
+
+  
+  if (checkbox_name) {
+    var code = WS2812Name + '.setPixelColor('+ WS2812LEDNo +','+ WS2812Name +'.Color('+ WS2812red_value +','+ WS2812green_value + ','+ WS2812blue_value +'));\n'+WS2812Name+'.show();\n';
+  } else {
+    var code = WS2812Name + '.setPixelColor('+ WS2812LEDNo +','+ WS2812Name +'.Color('+ WS2812red_value +','+ WS2812green_value + ','+ WS2812blue_value +'));\n';
+  }
+  return code;
+};
+
+Blockly.Arduino['WS2812_Show'] = function(block) {
+
+  var pinType = Blockly.Arduino.PinTypes.WS2812;
+  var WS2812Name = Blockly.Arduino.valueToCode(
+      block, 'ws2812_name', Blockly.Arduino.ORDER_ATOMIC) || Blockly.Msg.ARD_WS2812_DEFAULT_NAME;
+  
+  var code = WS2812Name+'.show();\n';
+
+  return code;
+};

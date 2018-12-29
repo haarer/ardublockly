@@ -253,5 +253,35 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="WS2812_FlexColor">' +
+'      <value name="ws2812_name">' +
+'        <block type="WS2812_variable"></block>' +
+'      </value>' +
+'      <value name="WS2812_LED_NO">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="WS2812_red_value">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="WS2812_green_value">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="WS2812_blue_value">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="WS2812_Show">' +
+'      <value name="ws2812_name">' +
+'        <block type="WS2812_variable"></block>' +
+'      </value>' +
+'    </block>' +
 '  </category>' +
 '</xml>';

@@ -77,3 +77,47 @@ Blockly.Blocks['WS2812_Color'] = {
     this.setHelpUrl('https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use');
   }
 };
+
+Blockly.Blocks['WS2812_FlexColor'] = {
+  init: function() {
+    this.appendValueInput("ws2812_name")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ARD_WS2812_SET_RGB_LED);
+    this.appendValueInput("WS2812_LED_NO")
+        .setCheck("Number")
+        .appendField(Blockly.Msg.ARD_WS2812_LED_NO);
+    this.appendValueInput("WS2812_red_value")
+        .setCheck("Number")
+        .appendField(Blockly.Msg.ARD_WS2812_RED_VALUE);
+    this.appendValueInput("WS2812_green_value")
+        .setCheck("Number")
+        .appendField(Blockly.Msg.ARD_WS2812_GREEN_VALUE);
+    this.appendValueInput("WS2812_blue_value")
+        .setCheck("Number")
+        .appendField(Blockly.Msg.ARD_WS2812_BLUE_VALUE);        
+    this.appendDummyInput()
+        .appendField(" ")
+        .appendField(new Blockly.FieldCheckbox('TRUE'), 'SHOW')
+        .appendField(Blockly.Msg.ARD_WS2812_SHOW);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(Blockly.Blocks.WS2812.HUE);
+    this.setTooltip(Blockly.Msg.ARD_WS2812_COLOR_TIP);
+    this.setHelpUrl('https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use');
+  }
+};
+
+Blockly.Blocks['WS2812_Show'] = {
+  init: function() {
+    this.appendValueInput("ws2812_name")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ARD_WS2812_SHOW);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(Blockly.Blocks.WS2812.HUE);
+    this.setTooltip(Blockly.Msg.ARD_WS2812_SHOW_TIP);
+    this.setHelpUrl('https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use');
+  }
+};
