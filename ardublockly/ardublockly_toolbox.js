@@ -217,6 +217,49 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+
+'    <block type="stepperdriver_config">' +
+'      <field name="StepperDriver_DIR_PIN">1</field>' +
+'      <field name="StepperDriver_STEP_PIN">2</field>' +
+'      <field name="StepperDriver_ENABLE_PIN">3</field>' +
+'      <value name="StepperDriver_NO_OF_STEPS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">200</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="StepperDriver_SPEED">' +
+'        <block type="math_number">' +
+'          <field name="NUM">120</field>' +
+'        </block>' +
+'      </value>' +
+'      <field name="StepperDriver_StepMode">1</field>' +
+'    </block>' +
+
+'    <block type="stepperdriver_variable"></block>' +
+
+'    <block type="stepperdriver_rotate">' +
+'      <value name="StepperDriver_name">' +
+'        <block type="stepperdriver_variable"></block>' +
+'      </value>' +
+'      <value name="StepperDriver_angle">' +
+'        <block type="math_number">' +
+'          <field name="NUM">360</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+
+'    <block type="stepperdriver_enable">' +
+'      <value name="StepperDriver_name">' +
+'        <block type="stepperdriver_variable"></block>' +
+'      </value>' +
+'    </block>' +
+
+'    <block type="stepperdriver_disable">' +
+'      <value name="StepperDriver_name">' +
+'        <block type="stepperdriver_variable"></block>' +
+'      </value>' +
+'    </block>' +
+
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +

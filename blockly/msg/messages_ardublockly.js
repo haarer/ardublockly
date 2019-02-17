@@ -175,6 +175,34 @@ Blockly.Msg.ARD_WS2812_LED_NO = 'LED No:';
 Blockly.Msg.ARD_WS2812_TO_COLOR = 'to Color:';
 Blockly.Msg.ARD_WS2812_COLOR_TIP = 'Test';
 Blockly.Msg.ARD_WS2812_SHOW = 'Show LED output';
+
+Blockly.Msg.ARD_StepperDriver_CONFIG = 'Setup Basic Stepper Driver';
+Blockly.Msg.ARD_StepperDriver_DEFAULT_NAME = 'MyStepper';
+Blockly.Msg.ARD_StepperDriver_DIR_PIN = 'Direction Pin';
+Blockly.Msg.ARD_StepperDriver_STEP_PIN = 'Step Pin';
+Blockly.Msg.ARD_StepperDriver_ENABLE_PIN = 'Enable Pin';
+Blockly.Msg.ARD_StepperDriver_NO_OF_STEPS = 'Number of Steps';
+Blockly.Msg.ARD_StepperDriver_SPEED = 'Steps per second';
+Blockly.Msg.ARD_StepperDriver_STEPMODE = 'Step Mode';
+Blockly.Msg.ARD_StepperDriver_STEPFULL = 'Full';
+Blockly.Msg.ARD_StepperDriver_STEPHALF = 'Half';
+Blockly.Msg.ARD_StepperDriver_STEP4 = 'Quarter';
+Blockly.Msg.ARD_StepperDriver_STEP8 = 'Eighth';
+Blockly.Msg.ARD_StepperDriver_STEP16 = 'Sixteenth';
+Blockly.Msg.ARD_StepperDriver_STEP32 = 'Thirtyseconth';
+Blockly.Msg.ARD_StepperDriver_STEPMODE_TIP = 'Since microstepping is set externally, make sure this matches the selected mode.If it doesnt, the motor will move at a different RPM than chosen';
+Blockly.Msg.ARD_StepperDriver_CONFIG_TIP ='Configure Stepper Motor, e.g. use dir=5, step=2 and enable=8 for the x axis of a grbl shield';
+
+Blockly.Msg.ARD_StepperDriver_TIP ='Stepper variable';
+Blockly.Msg.ARD_StepperDriver_ROTATE ='Rotate';
+Blockly.Msg.ARD_StepperDriver_DEG ='degrees';
+Blockly.Msg.ARD_StepperDriver_ROTATE_TIP ='rotate the motor by given value in degrees';
+Blockly.Msg.ARD_StepperDriver_ENABLE ='enable motor';
+Blockly.Msg.ARD_StepperDriver_ENABLE_TIP ='motor draws power even if it doesnt move. may get hot !';
+Blockly.Msg.ARD_StepperDriver_DISABLE ='disable motor';
+Blockly.Msg.ARD_StepperDriver_DISABLE_TIP ='motor draws no power. It can move freely now!';
+
+
 /**
  * Ardublockly instances
  */
