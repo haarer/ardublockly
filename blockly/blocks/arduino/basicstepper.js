@@ -17,7 +17,7 @@ goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
 /** Common HSV hue for all blocks in this category. */
-Blockly.Blocks.StepperDriver.HUE = 88;
+Blockly.Blocks.StepperDriver.HUE = 120;
 
 Blockly.Blocks['stepperdriver_config'] = {
   init: function() {

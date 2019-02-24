@@ -219,9 +219,9 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 
 '    <block type="stepperdriver_config">' +
-'      <field name="StepperDriver_DIR_PIN">1</field>' +
+'      <field name="StepperDriver_DIR_PIN">5</field>' +
 '      <field name="StepperDriver_STEP_PIN">2</field>' +
-'      <field name="StepperDriver_ENABLE_PIN">3</field>' +
+'      <field name="StepperDriver_ENABLE_PIN">8</field>' +
 '      <value name="StepperDriver_NO_OF_STEPS">' +
 '        <block type="math_number">' +
 '          <field name="NUM">200</field>' +
