@@ -13,6 +13,7 @@ from __future__ import unicode_literals, absolute_import, print_function
 import os
 import re
 import sys
+import re
 import codecs
 # local-packages imports
 import configparser
@@ -20,6 +21,29 @@ import configparser
 import ardublocklyserver.serialport
 
 
+import re
+def get_boards():
+    boards={}
+    try:
+        # TODO: use all board files
+        # ~/.arduino15/packages/*/hardware/*/*/boards.txt
+        boardfile=  codecs.open("/opt/arduino-1.8.8/hardware/arduino/avr/boards.txt", 'r', encoding='utf-8') 
+        boardlist= boardfile.readlines()
+    except:
+        print("Error: cant open board list")
+        return boards
+    for l in boardlist:
+        m = re.match(r"(\w+)\.name=(.+)$",l)
+        if m:
+            name=m.group(1)
+            friendlyname=m.group(2)
+            boards[friendlyname]="arduino:avr:%s" % (name)
+        m = re.match(r"\w+\.menu.cpu.(\w+).build.mcu=(.+)$",l)
+        if m:
+            menu_mcu_var=m.group(1)
+            boards["%s %s" % (friendlyname,menu_mcu_var)] = "arduino:avr:%s:cpu=%s" % (name,menu_mcu_var)
+
+    return boards
 class ServerCompilerSettings(object):
     """Singleton class to store and save the Ardublockly settings.
 
@@ -48,6 +72,19 @@ class ServerCompilerSettings(object):
     # TODO: This content will be moved from here and integrated completely
     #       into 'blockly\generators\arduino\boards.js', which should then
     #       send the selected flag to be saved as a single value
+    # 
+    # imho this should be a result of a query on board.txt
+    #  grep ^.*name /opt/arduino-1.8.8/hardware/arduino/*/boards.txt
+    # and 
+    #  grep ^.*name ~/.arduino15/packages/*/hardware/*/*/boards.txt 
+    # pro.name=Arduino Pro or Pro Mini
+    # and 
+
+    #pro.menu.cpu.16MHzatmega328.build.mcu=atmega328p
+
+    # goal : bin/arduino-cli compile --fqbn arduino:avr:pro:cpu=16MHzatmega328 ardublockly/ArdublocklySketch/ArdublocklySketch.ino
+
+
     __arduino_types = {'Uno': 'arduino:avr:uno',
                        'Nano 328': 'arduino:avr:nano:cpu=atmega328',
                        'Nano 168': 'arduino:avr:nano:cpu=atmega168',
@@ -95,6 +132,7 @@ class ServerCompilerSettings(object):
 
     def __initialise(self, settings_dir=None):
         # Create variables to be used with accessors
+        self.__arduino_types = get_boards()
         self.__load_ide_option = None
         self.__compiler_dir = None
         self.__sketch_dir = None
@@ -185,7 +223,7 @@ class ServerCompilerSettings(object):
 
         It only accepts letters, numbers, underscores and dashes.
         """
-        if re.match("^[\w\d_-]*$", new_sketch_name):
+        if re.match(r"^[\w\d_-]*$", new_sketch_name):
             self.__sketch_name = new_sketch_name
             print('Sketch name set to:\n\t%s' % self.__sketch_name)
             self.save_settings()
@@ -211,7 +249,7 @@ class ServerCompilerSettings(object):
 
         It only accepts letters, numbers, underscores and dashes.
         """
-        if re.match("^[\w\d_-]*$", new_sketch_name):
+        if re.match(r"^[\w\d_-]*$", new_sketch_name):
             self.__sketch_name = new_sketch_name
         else:
             print('Settings file Sketch name contains invalid characters:'
