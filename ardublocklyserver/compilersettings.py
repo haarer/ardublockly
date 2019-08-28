@@ -22,28 +22,43 @@ import ardublocklyserver.serialport
 
 
 import re
+
 def get_boards():
     boards={}
     try:
-        # TODO: use all board files
-        # ~/.arduino15/packages/*/hardware/*/*/boards.txt
-        boardfile=  codecs.open("/opt/arduino-1.8.8/hardware/arduino/avr/boards.txt", 'r', encoding='utf-8') 
-        boardlist= boardfile.readlines()
-    except:
-        print("Error: cant open board list")
-        return boards
-    for l in boardlist:
-        m = re.match(r"(\w+)\.name=(.+)$",l)
-        if m:
-            name=m.group(1)
-            friendlyname=m.group(2)
-            boards[friendlyname]="arduino:avr:%s" % (name)
-        m = re.match(r"\w+\.menu.cpu.(\w+).build.mcu=(.+)$",l)
-        if m:
-            menu_mcu_var=m.group(1)
-            boards["%s %s" % (friendlyname,menu_mcu_var)] = "arduino:avr:%s:cpu=%s" % (name,menu_mcu_var)
+        boardlist=[]
+        if sys.platform == "win32":
+            pkgpath = os.path.join(os.path.expanduser("~"), "AppData/Local/Arduino15/packages")
+        else:
+            pkgpath = os.path.join(os.path.expanduser("~"), ".arduino15/packages")
+
+        for pkgdir in os.listdir(pkgpath):
+            print (pkgdir)
+            try:
+                boardfilepath = os.path.join(pkgpath, pkgdir, "hardware")
+                for archdir in os.listdir(boardfilepath):
+                    for verdir in os.listdir(os.path.join(boardfilepath, archdir)):
+                        boardfile = codecs.open(os.path.join(
+                        boardfilepath, archdir, verdir, "boards.txt"), 'r', encoding='utf-8')
+                        boardlist = boardfile.readlines()
+                        for l in boardlist:
+                            m = re.match(r"(\w+)\.name=(.+)$",l)
+                            if m:
+                                name=m.group(1)
+                                friendlyname=m.group(2)
+                                boards[friendlyname]="%s:%s:%s" % (pkgdir,archdir,name)
+                            m = re.match(r"\w+\.menu.cpu.(\w+).build.mcu=(.+)$",l)
+                            if m:
+                                menu_mcu_var=m.group(1)
+                                boards["%s %s" % (friendlyname,menu_mcu_var)] = "%s:%s:%s:cpu=%s" % (pkgdir,archdir,name,menu_mcu_var)
+            except :
+                pass
+    except :
+        print("Error: cant open board list",sys.exc_info()[0],pkgpath)
 
     return boards
+
+
 class ServerCompilerSettings(object):
     """Singleton class to store and save the Ardublockly settings.
 
