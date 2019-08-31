@@ -55,7 +55,6 @@ def get_boards():
                 pass
     except :
         print("Error: cant open board list",sys.exc_info()[0],pkgpath)
-
     return boards
 
 
