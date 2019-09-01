@@ -1,14 +1,30 @@
 # Mein Fork von Ardublockly
 Ardublockly ist eine grafische Programmierumgebung für Arduinos. Es basiert auf einem Fork von Google's [Blockly][1], der geändert wurde um [Arduino][15] Code zu erzeugen.
 
-Mein Fork des [Hauptrepositorys][18] fügt folgendes hinzu:
+Mein Fork des [Hauptrepositorys][18] hat folgende Änderungen:
 * Übersetzung in die deutsche Sprache
-* zusätzliche Blöcke (derzeit nur für WS2812 LED Strips)
+* zum compilieren wird [arduino-cli][19] benutzt statt der Arduino IDE 
+* zusätzliche Blöcke für 
+  * WS2812 LED Strips, benötigt die Adafruit NeoPixel Library
+  * Schrittmotoren, z.B. auf einem GRBL shield.
+* die unterstützten Boards werden nun aus den Board.txt Dateien ausgelesen. Deshalb kann man nun alle Boards auswählen.Allerdings sind nur für folgende Boards Pinkonfigurationen vorhanden(daran habe ich noch nichts geändert)
+  * Arduino Uno standard compatible board
+  * Arduino Nano with ATmega328 board
+  * Arduino Duemilanove with ATmega168p compatible board
+  * Arduino Duemilanove with ATmega328p compatible board
+  * Arduino Mega-compatible board
+  * Arduino Leonardo-compatible board
+  * Arduino Yun compatible board
+  * Atmel atmega328p Xplained mini
+  * Atmel atmega168pb Xplained mini
+  * Adafruit Feather HUZZAH
+  * Wemos D1
+
 
 
 Das ArdublocklyServer Python Modul startet einen lokalen Server um den Arduino Code zu übersetzen und in einen Arduino zu laden. Dazu wird eine als Voraussetzung installierte [Arduino IDE][2] benötigt.
 
-Es gibt auch eine Desktopanwendung die die Funktionen zusammenfaßt. Sie ist für Windows, Mac OS X, and Linux verfügbar.
+Es gibt auch eine Desktopanwendung die die Funktionen zusammenfaßt. Sie kann für Windows, Mac OS X, and Linux gebaut werden, ich teste aber nur Windows und Linux
 
 ![Screenshot deutsch](https://raw.github.com/haarer/haarer.github.io/master/_posts/2018-12-12-Ardublockly.png)
 
@@ -17,7 +33,7 @@ Es gibt auch eine Desktopanwendung die die Funktionen zusammenfaßt. Sie ist fü
 * Erzeugt Arduino code mittels drag-und-drop von Blöcken
 * Lädt den Code in eine an Arduino Board
 * Hilfreiche "Code Block Warnungen"
-* Kompatibel mit vielen offiziellen Arduino Boards
+* Kompatibel mit  vielen der von der Arduino IDE unterstützten Boards
 * Läuft auf Windows / Linux / Mac OS X
 
 Ardublockly befindet sich in Entwicklung und einige Features sind noch nicht implementiert. Eine to-do List des Hauptprojekts ist im [TODO.md][3] file.
@@ -39,8 +55,19 @@ Die Desktop Anwendung ist für Windows/Mac/Linux verfügbar und läuft als "stan
 
 Derzeit sind für meinen Fork keine Binärreleases verfügbar. 
 
-Es wird zusätzlich die [Arduino IDE version 1.6.x oder neuer][2] benötigt.
+Es wird zusätzlich  [arduino-cli][19] benötigt. Arduino-cli ist ein Kommandozeilenprogramm.
 
+### Installation einer platform mittels arduino-cli
+
+```
+arduino-cli core install arduino:avr
+arduino-cli core install esp8266:esp8266
+```
+### boardmanager urls hinzufügen
+```
+arduino-cli core update-index --additional-urls https://dl.espressif.com/dl/package_esp32_index.json
+arduino-cli core install esp32:esp32 --additional-urls https://dl.espressif.com/dl/package_esp32_index.json
+```
 
 ## "Core version" (Python Server)
 Die Kernapplikation kann verwendet werden indem man nur den Python Server startet, falls Sie das bevorzugen. Das Webinterface wird dann in einem lokalen Browser dargestellt (Chrome empfohlen).
@@ -118,6 +145,7 @@ limitations under the License.
 [16]: https://github.com/BlocklyDuino/BlocklyDuino
 [17]: blockly/README.md
 [18]: https://github.com/carlosperate/ardublockly/
+[19]: https://github.com/arduino/arduino-cli
 
 [desktop_screeshot]: http://haarer.github.io/ardublockly/images/screenshot_desktop_1.png
 [web_screenshot_responsive]: http://haarer.github.io/ardublockly/images/screenshot_material_all_small.jpg
