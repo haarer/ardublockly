@@ -93,19 +93,22 @@ def load_arduino_cli(sketch_path):
     if success:
         ide_mode = settings.load_ide_option
         # Concatenates the CLI command and execute if the flags are valid
-        cli_command = [settings.compiler_dir, "%s" % sketch_path]
+        
+        # goal : bin/arduino-cli compile --fqbn arduino:avr:pro:cpu=16MHzatmega328 ardublockly/ArdublocklySketch/ArdublocklySketch.ino
+
+        cli_command = [settings.compiler_dir]
         if settings.load_ide_option == 'upload':
             print('\nUploading sketch to Arduino...')
-            cli_command.append('--upload')
+            cli_command.append('upload')
+            cli_command.append('--fqbn')
+            cli_command.append(settings.get_arduino_board_flag())
             cli_command.append('--port')
             cli_command.append(settings.get_serial_port_flag())
-            cli_command.append('--board')
-            cli_command.append(settings.get_arduino_board_flag())
         elif settings.load_ide_option == 'verify':
             print('\nVerifying the sketch...')
-            cli_command.append('--board')
+            cli_command.append('compile')
+            cli_command.append('--fqbn')
             cli_command.append(settings.get_arduino_board_flag())
-            cli_command.append('--verify')
         elif settings.load_ide_option == 'open':
             print('\nOpening the sketch in the Arduino IDE...')
         print('CLI command: %s' % ' '.join(cli_command))
@@ -114,6 +117,7 @@ def load_arduino_cli(sketch_path):
             sys_locale = locale.getpreferredencoding()
             cli_command = [x.encode(sys_locale) for x in cli_command]
 
+        cli_command.append( os.path.dirname( sketch_path))
         if settings.load_ide_option == 'open':
             # Open IDE in a subprocess without capturing outputs
             subprocess.Popen(cli_command, shell=False)
@@ -124,6 +128,7 @@ def load_arduino_cli(sketch_path):
                 cli_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                 shell=False)
             std_out, err_out = process.communicate()
+            print (std_out,err_out)
             std_out = six.u(std_out)
             err_out = six.u(err_out)
             exit_code = process.returncode

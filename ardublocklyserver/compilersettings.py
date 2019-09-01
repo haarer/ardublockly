@@ -82,40 +82,11 @@ class ServerCompilerSettings(object):
     # Class variable to indicate the settings filename, static content
     __settings_filename = 'ServerCompilerSettings.ini'
 
-    # Class dictionary to define Arduino board types, static content
-    # TODO: This content will be moved from here and integrated completely
-    #       into 'blockly\generators\arduino\boards.js', which should then
-    #       send the selected flag to be saved as a single value
-    # 
-    # imho this should be a result of a query on board.txt
-    #  grep ^.*name /opt/arduino-1.8.8/hardware/arduino/*/boards.txt
-    # and 
+    # Class dictionary to define Arduino board types, loaded from boards.txt
     #  grep ^.*name ~/.arduino15/packages/*/hardware/*/*/boards.txt 
-    # pro.name=Arduino Pro or Pro Mini
-    # and 
-
-    #pro.menu.cpu.16MHzatmega328.build.mcu=atmega328p
-
-    # goal : bin/arduino-cli compile --fqbn arduino:avr:pro:cpu=16MHzatmega328 ardublockly/ArdublocklySketch/ArdublocklySketch.ino
 
 
-    __arduino_types = {'Uno': 'arduino:avr:uno',
-                       'Nano 328': 'arduino:avr:nano:cpu=atmega328',
-                       'Nano 168': 'arduino:avr:nano:cpu=atmega168',
-                       'Leonardo': 'arduino:avr:leonardo',
-                       'Yun': 'arduino:avr:leonardo',
-                       'Mega': 'arduino:avr:mega',
-                       'Duemilanove 328p': 'arduino:avr:diecimila',
-                       'Duemilanove 168p':
-                               'arduino:avr:diecimila:cpu=atmega168',
-                       'Atmel atmega328p Xplained mini':
-                               'atmel:avr:atmega328p_xplained_mini',
-                       'Atmel atmega168pb Xplained mini':
-                               'atmel:avr:atmega168pb_xplained_mini',
-                       'Atmel atmega328pb Xplained mini':
-                               'atmel:avr:atmega328pb_xplained_mini',
-                       'ESP8266 Huzzah': 'esp8266:esp8266:generic',
-                       'ESP8266 WeMos D1': 'esp8266:esp8266:generic'}
+    __arduino_types = {}
 
     # Class dictionary to contain the computer COM ports, dynamic content
     __serial_ports = {'port0': 'COM1'}

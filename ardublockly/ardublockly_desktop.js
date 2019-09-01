@@ -85,7 +85,7 @@ Ardublockly.bindSettingsPathInputs = function() {
   compilerEl.readOnly = true;
   Ardublockly.bindClick_(compilerEl, function() {
     dialog.showOpenDialog({
-      title: 'Select the Arduino IDE executable',
+      title: 'Select the Arduino CLI executable',
       buttonLabel: 'Select',
       properties: ['openFile']
     }, function (files) {
@@ -102,7 +102,7 @@ Ardublockly.bindSettingsPathInputs = function() {
   sketchEl.readOnly = true;
   Ardublockly.bindClick_(sketchEl, function() {
     dialog.showOpenDialog({
-      title: 'Select the Arduino IDE executable',
+      title: 'Select the Sketch Location executable',
       buttonLabel: 'Select',
       properties: ['openDirectory']
     }, function (folders) {
